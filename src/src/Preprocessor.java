@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class preprocessor {
+public class Preprocessor {
 	
-	static final public filedata preprocess(String file) throws NumberFormatException, IOException {
+	static final public Filedata preprocess(String file) throws NumberFormatException, IOException {
 
-		filedata fd;
+		Filedata fd;
 		
 		File f = new File("TestCase.txt");
 	    Scanner input = new Scanner(f); 
@@ -16,7 +16,7 @@ public class preprocessor {
 		int algorithmNumber = Integer.parseInt(input.next());
 		int amountOfCircles = Integer.parseInt(input.next());
 
-		fd = new filedata(algorithmNumber, amountOfCircles);
+		fd = new Filedata(algorithmNumber, amountOfCircles);
 		
 		for (int i = 0; i < amountOfCircles; i++) {
 			
@@ -24,11 +24,13 @@ public class preprocessor {
 			double y = Double.parseDouble(input.next());
 			double radius = Double.parseDouble(input.next());
 			
-			coordinate center = new coordinate(x, y);
+			Coordinate center = new Coordinate(x, y);
 			
 			fd.addCircle(radius, center);
 			
 		}
+		
+		input.close();
 		
 		return fd;
 		

@@ -1,11 +1,11 @@
 package src;
 
-public class coordinate {
+public class Coordinate {
 	
     public double x;
     public double y;
     
-    public coordinate(double newX, double newY) {
+    public Coordinate(double newX, double newY) {
     	
     	x = newX;
     	y = newY;

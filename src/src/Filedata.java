@@ -1,23 +1,23 @@
 package src;
 
-public class filedata {	
+public class Filedata {	
 
     public int chosenAlgorithm;
     public int amountOfCircles;
-    public circle[] circles;
+    public Circle[] circles;
     private int freeIndex = 0;
     
-    public filedata(int CA, int AoC) {
+    public Filedata(int CA, int AoC) {
     	
     	chosenAlgorithm = CA;
     	amountOfCircles = AoC;
-    	circles = new circle[amountOfCircles];
+    	circles = new Circle[amountOfCircles];
     	
     };
     
-    public void addCircle (double radius, coordinate center) {
+    public void addCircle (double radius, Coordinate center) {
     	
-    	circle c = new circle(center, radius);
+    	Circle c = new Circle(center, radius);
     	circles[freeIndex] = c;
     	freeIndex++;
     	
