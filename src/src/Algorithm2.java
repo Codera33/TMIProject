@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 public class Algorithm2 {
 	
@@ -69,10 +70,14 @@ public class Algorithm2 {
 		
 		long endTime   = System.nanoTime();
 		long totalTime = endTime - startTime;
+		long durationInMs = TimeUnit.MILLISECONDS.convert(totalTime, TimeUnit.NANOSECONDS);
+		
+		writer.println();
+		writer.println(durationInMs);
+
 		
 		writer.close();
 		
-		System.out.println((double)totalTime / 1_000_000_000.0);
 		System.out.println("Amount of intersections: " + track);
 	}
 }

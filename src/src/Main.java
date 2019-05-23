@@ -2,7 +2,6 @@ package src;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Random;
 
 public class Main {
 	
@@ -11,17 +10,17 @@ public class Main {
 		/*
 		PrintWriter writer = new PrintWriter("uitvoercirkels2.txt", "UTF-8");
 		writer.println(2);
-		writer.println(5000);
+		writer.println(10000);
 		
-		for (int i = 0; i < 5000; i++) {
+		for (int i = 0; i < 10000; i++) {
 			
-			writer.println(Math.random() + " " + Math.random() + " " + Math.random() * 0.3);
+			writer.println(Math.random() + " " + Math.random() + " " + Math.random() * 0.1);
 
 		}
 		writer.close();
 		*/
 		
-		Filedata fd = Preprocessor.preprocess("uitvoercirkels2.txt");
+		Filedata fd = Preprocessor.preprocess("invoercirkels.txt");
 		
 		if (fd.chosenAlgorithm == 1) {
 			
@@ -29,9 +28,7 @@ public class Main {
 			alg.run();
 			
 		} else if (fd.chosenAlgorithm == 2) {
-
-			Algorithm1 alg1 = new Algorithm1(fd.circles);
-			alg1.run();
+			
 			Algorithm2 alg = new Algorithm2(fd.circles);
 			alg.run();
 
