@@ -13,17 +13,21 @@ public class Algorithm2 {
 	
 	public Algorithm2(Circle[] c) {
 		
-		circles = new Circle[c.length];
-		System.arraycopy(c, 0, circles, 0, c.length);
+		circles = c;
 		amountOfCircles = circles.length;
 		
 	}
 	
 	public void run() throws FileNotFoundException, UnsupportedEncodingException {
 		
+		PrintWriter writer = new PrintWriter("uitvoercirkels.txt", "UTF-8");
+		
+		long startTime = System.nanoTime();
+		
 		ArrayList<Event> events = new ArrayList<Event>();
 		ArrayList<Circle> activeCircles = new ArrayList<Circle>();
-		ArrayList<Coordinate> intersections = new ArrayList<Coordinate>();
+		C2CRelation r = new C2CRelation();
+		int track = 0;
 
 		for (int i = 0; i < circles.length; i++) {
 			  
@@ -42,8 +46,16 @@ public class Algorithm2 {
 				
 				for (int u = 0; u < activeCircles.size(); u++) {
 					
-					C2CRelation r = new C2CRelation(events.get(i).c, activeCircles.get(u));
-					intersections.addAll(r.intersections);
+					ArrayList<Coordinate> temp = r.calculateIntersections(events.get(i).c, activeCircles.get(u));
+
+					if (temp.size() != 0) {
+
+						for (int p = 0; p < temp.size(); p++) {
+					
+							writer.println(temp.get(p).x + " " + temp.get(p).y);
+							track++;
+						}
+					}
 				}
 				
 				activeCircles.add(events.get(i).c);
@@ -55,14 +67,12 @@ public class Algorithm2 {
 			}
 		}
 		
-		PrintWriter writer = new PrintWriter("uitvoercirkels.txt", "UTF-8");
+		long endTime   = System.nanoTime();
+		long totalTime = endTime - startTime;
 		
-		for (int i = 0; i < intersections.size(); i++) {
-
-		writer.println(intersections.get(i).x + " " + intersections.get(i).y);
-		System.out.println(intersections.get(i).x + " " + intersections.get(i).y);
-
-		}
 		writer.close();
+		
+		System.out.println((double)totalTime / 1_000_000_000.0);
+		System.out.println("Amount of intersections: " + track);
 	}
 }

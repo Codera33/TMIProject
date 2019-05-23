@@ -10,7 +10,7 @@ public class Preprocessor {
 
 		Filedata fd;
 		
-		File f = new File("invoercirkels.txt");
+		File f = new File(file);
 	    Scanner input = new Scanner(f); 
 		
 		int algorithmNumber = Integer.parseInt(input.next());

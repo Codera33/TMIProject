@@ -24,14 +24,14 @@ public class Circle {
 		leftestPoint = new Coordinate (leftestPointX, leftestPointY);
 
 		double temp1 = centerPoint.x + r;
-		double rightestPointX = Math.round(temp1 * 1000000.0) / 1000000.0;
+		double rightestPointX = Math.round(temp1 * 10000000000.0) / 10000000000.0;
 		double rightestPointY = centerPoint.y;
 		
 		rightestPoint = new Coordinate (rightestPointX, rightestPointY);
 		
 		double highestPointX = centerPoint.x;
 		double temp2 = centerPoint.y + r;
-		double highestPointY = Math.round(temp2 * 1000000.0) / 1000000.0;
+		double highestPointY = Math.round(temp2 * 10000000000.0) / 10000000000.0;
 		
 		highestPoint = new Coordinate (highestPointX, highestPointY);
 		
