@@ -1,5 +1,8 @@
 package src;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,7 +19,7 @@ public class Algorithm2 {
 		
 	}
 	
-	public void run() {
+	public void run() throws FileNotFoundException, UnsupportedEncodingException {
 		
 		ArrayList<Event> events = new ArrayList<Event>();
 		ArrayList<Circle> activeCircles = new ArrayList<Circle>();
@@ -51,5 +54,15 @@ public class Algorithm2 {
 				
 			}
 		}
+		
+		PrintWriter writer = new PrintWriter("uitvoercirkels.txt", "UTF-8");
+		
+		for (int i = 0; i < intersections.size(); i++) {
+
+		writer.println(intersections.get(i).x + " " + intersections.get(i).y);
+		System.out.println(intersections.get(i).x + " " + intersections.get(i).y);
+
+		}
+		writer.close();
 	}
 }

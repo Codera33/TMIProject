@@ -31,7 +31,9 @@ public class C2CRelation {
 		r1 = c1.radius;
 		r2 = c2.radius;
 		
-		r = r1 + r2;
+		double temp_r = r1 + r2;
+		
+		r = (Math.round(temp_r * 1000000.0) / 1000000.0);
 		
 		double m1_x = c1.centerPoint.x;
 		double m2_x = c2.centerPoint.x;
@@ -41,8 +43,8 @@ public class C2CRelation {
 		
 		double temp1 = m1_x - m2_x;
 		double temp2 = m1_y - m2_y;
-		delta_x = Math.abs(Math.round(temp1 * 100.0) / 100.0);
-		delta_y = Math.abs(Math.round(temp2 * 100.0) / 100.0);
+		delta_x = Math.abs(Math.round(temp1 * 1000000.0) / 1000000.0);
+		delta_y = Math.abs(Math.round(temp2 * 1000000.0) / 1000000.0);
 		
 		distanceMiddlePoints = Math.sqrt((delta_x * delta_x) + (delta_y * delta_y));
 		
@@ -58,33 +60,35 @@ public class C2CRelation {
 			
 		} else if (distanceMiddlePoints > r) {
 
-			amountOfIntersections = 0;			
+			amountOfIntersections = 0;	
 			
+
 		}
 	}
 	
 	public void calculateIntersections () {
 		
-		double a = ((r1 * r1) - (r2 * r2) + (distanceMiddlePoints * distanceMiddlePoints)) / (2 * distanceMiddlePoints);
+		double temp_a = ((r1 * r1) - (r2 * r2) + (distanceMiddlePoints * distanceMiddlePoints)) / (2 * distanceMiddlePoints);
+		double a = Math.abs(Math.round(temp_a * 1000000.0) / 1000000.0);
 		
 		double h = Math.sqrt((r1 * r1) - (a * a));
 		
 		double x2 = c1.centerPoint.x + a * (c2.centerPoint.x - c1.centerPoint.x) / distanceMiddlePoints;
 		double y2 = c1.centerPoint.y + a * (c2.centerPoint.y - c1.centerPoint.y) / distanceMiddlePoints;
 		
-		double x3 = x2 + h * (c2.centerPoint.x - c1.centerPoint.x) / distanceMiddlePoints;
-		double x4 = x2 - h * (c2.centerPoint.x - c1.centerPoint.x) / distanceMiddlePoints;
+		double x3 = x2 + h * (c2.centerPoint.y - c1.centerPoint.y) / distanceMiddlePoints;
+		double x4 = x2 - h * (c2.centerPoint.y - c1.centerPoint.y) / distanceMiddlePoints;
 		
-		double y3 = y2 + h * (c2.centerPoint.y - c1.centerPoint.y) / distanceMiddlePoints;
-		double y4 = y2 - h * (c2.centerPoint.y - c1.centerPoint.y) / distanceMiddlePoints;
+		double y3 = y2 - h * (c2.centerPoint.x - c1.centerPoint.x) / distanceMiddlePoints;
+		double y4 = y2 + h * (c2.centerPoint.x - c1.centerPoint.x) / distanceMiddlePoints;
 		
 		Coordinate I1 = new Coordinate(x3, y3);
 		Coordinate I2 = new Coordinate(x4, y4);
 		
 		intersections.add(I1);
+		
+		if (amountOfIntersections == 2) {
 		intersections.add(I2);
-
+		}
 	}
-	
-	
 }
