@@ -61,5 +61,6 @@ public class Algorithm1 {
 		
 		writer.close();
 		System.out.println("Amount of intersections: " + track);
+		System.out.println("Runtime: " + durationInMs + " milliseconds");
 	}
 }
