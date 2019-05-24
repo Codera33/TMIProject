@@ -35,6 +35,9 @@ public class Main {
 			
 		} else if (fd.chosenAlgorithm == 3) {
 			
+			Algorithm3 alg = new Algorithm3(fd.circles);
+			alg.run();
+			
 		}
     }
 }

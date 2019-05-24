@@ -47,7 +47,9 @@ public class C2CRelation {
 			
 		}
 		
-		double temp_a = ((r1 * r1) - (r2 * r2) + (distanceMiddlePoints * distanceMiddlePoints)) / (2 * distanceMiddlePoints);
+		double temp_t = Math.round(((r1 * r1) - (r2 * r2)) * 10000000000.0) / 10000000000.0;
+		double temp_u = Math.round((distanceMiddlePoints * distanceMiddlePoints) * 10000000000.0) / 10000000000.0;
+		double temp_a = (temp_t + temp_u) / (2 * distanceMiddlePoints);
 		double a = Math.abs(Math.round(temp_a * 10000000000.0) / 10000000000.0);
 		
 		double h = Math.sqrt((r1 * r1) - (a * a));
@@ -57,6 +59,8 @@ public class C2CRelation {
 			return intersections;
 			
 		}
+		
+		double temp_c2xc1x = Math.round((c2.centerPoint.x - c1.centerPoint.x) * 10000000000.0) / 10000000000.0;
 		
 		double x2 = c1.centerPoint.x + a * (c2.centerPoint.x - c1.centerPoint.x) / distanceMiddlePoints;
 		double y2 = c1.centerPoint.y + a * (c2.centerPoint.y - c1.centerPoint.y) / distanceMiddlePoints;

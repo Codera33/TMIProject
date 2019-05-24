@@ -18,7 +18,7 @@ public class Circle {
 		
 		centerPoint = center;
 		
-		double leftestPointX = centerPoint.x - r;
+		double leftestPointX = Math.round((centerPoint.x - r) * 10000000000.0) / 10000000000.0;
 		double leftestPointY = centerPoint.y;
 		
 		leftestPoint = new Coordinate (leftestPointX, leftestPointY);
@@ -35,10 +35,10 @@ public class Circle {
 		
 		highestPoint = new Coordinate (highestPointX, highestPointY);
 		
-		double lowestPointX = centerPoint.x;
-		double lowestPointY = centerPoint.y - r;
+		double lowestPointX = Math.round(centerPoint.x * 10000000000.0) / 10000000000.0;
+		double lowestPointY = Math.round((centerPoint.y - r) * 10000000000.0) / 10000000000.0;
 		
-		lowestPoint = new Coordinate (lowestPointX, lowestPointY);	
+		lowestPoint = new Coordinate (lowestPointX, lowestPointY);
 	}
 	
 }
