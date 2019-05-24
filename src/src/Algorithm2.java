@@ -52,7 +52,7 @@ public class Algorithm2 {
 					if (temp.size() != 0) {
 
 						for (int p = 0; p < temp.size(); p++) {
-					
+							
 							writer.println(temp.get(p).x + " " + temp.get(p).y);
 							track++;
 						}

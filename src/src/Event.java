@@ -17,6 +17,15 @@ public class Event implements Comparable<Event> {
 	
 	public int compareTo(Event compareE) {
 		
+		if(Double.compare(x, compareE.x) == 0) {
+			if (type == EventType.STARTCIRCLE) {
+				return -1;
+			} else if (compareE.type == EventType.STARTCIRCLE) {
+				return 1;
+			}
+			
+		}
+		
 		return Double.compare(x, compareE.x);
 		
 	}	

@@ -43,7 +43,7 @@ public class Algorithm1 {
 				if (temp.size() != 0) {
 
 					for (int u = 0; u < temp.size(); u++) {
-				
+						
 						writer.println(temp.get(u).x + " " + temp.get(u).y);
 						track++;
 					}
@@ -60,6 +60,6 @@ public class Algorithm1 {
 
 		
 		writer.close();
-		System.out.println("Alg1 Amount of intersections: " + track);
+		System.out.println("Amount of intersections: " + track);
 	}
 }

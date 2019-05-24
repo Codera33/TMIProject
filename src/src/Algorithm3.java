@@ -3,10 +3,6 @@ package src;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.concurrent.TimeUnit;
 
 public class Algorithm3 {
 	
