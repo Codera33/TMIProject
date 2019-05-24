@@ -6,20 +6,8 @@ import java.io.PrintWriter;
 public class Main {
 	
 	public static void main(String args[]) throws IOException {
-
-		PrintWriter writer = new PrintWriter("uitvoercirkels2.txt", "UTF-8");
-		int numberofpoints = 20000;
-		writer.println(1);
-		writer.println(numberofpoints);
 		
-		for (int i = 0; i < numberofpoints; i++) {
-			
-			writer.println(Math.random() + " " + Math.random() + " " + Math.random() * 0.2);
-
-		}
-		writer.close();
-		
-		Filedata fd = Preprocessor.preprocess("uitvoercirkels2.txt");
+		Filedata fd = Preprocessor.preprocess("invoercirkels.txt");
 		
 		if (fd.chosenAlgorithm == 1) {
 			
